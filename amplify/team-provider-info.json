@@ -1,0 +1,25 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-indigodesktopv2-dev-154458-authRole",
+      "UnauthRoleArn": "arn:aws:iam::804849608251:role/amplify-indigodesktopv2-dev-154458-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::804849608251:role/amplify-indigodesktopv2-dev-154458-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-indigodesktopv2-dev-154458-deployment",
+      "UnauthRoleName": "amplify-indigodesktopv2-dev-154458-unauthRole",
+      "StackName": "amplify-indigodesktopv2-dev-154458",
+      "StackId": "arn:aws:cloudformation:us-east-1:804849608251:stack/amplify-indigodesktopv2-dev-154458/5f276250-b239-11ed-a0c4-0a3b4f6e6423",
+      "AmplifyAppId": "d1gblmykp7uyv6"
+    },
+    "categories": {
+      "auth": {
+        "indigodesktopv243ddfdc3": {
+          "userPoolId": "us-east-1_YY2fwpBkE",
+          "userPoolName": "indigoweb9b1f538c_userpool_9b1f538c-devnew",
+          "webClientId": "5st0uqe6e3a5ihvuv1vd6g7t69",
+          "nativeClientId": "4m5cl3jbanaen7tt3p6fcv35lm"
+        }
+      }
+    }
+  }
+}
