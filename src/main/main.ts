@@ -74,6 +74,7 @@ const createWindow = async () => {
     width: 600,
     height: 500,
     icon: getAssetPath('icon.png'),
+    backgroundColor: '#282c34',
     webPreferences: {
       // TODO: UPDATE ONCE OUT OF DEVELOPMENT
       webSecurity: false,
@@ -82,6 +83,9 @@ const createWindow = async () => {
         : path.join(__dirname, '../../.erb/dll/preload.js'),
     },
   });
+
+  mainWindow.setAlwaysOnTop(true, 'screen-saver');
+  mainWindow.setVisibleOnAllWorkspaces(true);
 
   mainWindow.loadURL(resolveHtmlPath('index.html'));
 
