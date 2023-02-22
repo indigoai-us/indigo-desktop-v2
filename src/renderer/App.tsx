@@ -18,10 +18,6 @@ import awsmobilewithauth from './aws-exports-with-auth';
 
 Amplify.configure(awsmobilewithauth);
 
-// TODO: COMMENTED OUT FOR DEVELOPMENT IN BROWSER
-// TODO: FIND WAY TO DETECT IF IN BROWSER OR IN ELECTRON
-// const { ipcRenderer } = require('electron');
-
 const StyledApp = styled.div`
   background-color: var(--color-secondary);
 
@@ -76,7 +72,7 @@ function App() {
           className="App"
           onKeyDown={(e) => {
             if (e.key === 'Escape') {
-              // ipcRenderer.send('close-me-please');
+              // window.electron.ipcRenderer.send('close-me-please');
             }
           }}
         >
