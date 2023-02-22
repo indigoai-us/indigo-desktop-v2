@@ -72,7 +72,7 @@ function App() {
           className="App"
           onKeyDown={(e) => {
             if (e.key === 'Escape') {
-              // window.electron.ipcRenderer.send('close-me-please');
+              // ipcRenderer.send('close-me-please');
             }
           }}
         >

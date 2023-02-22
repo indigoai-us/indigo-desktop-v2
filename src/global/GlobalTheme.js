@@ -1,18 +1,18 @@
-import React from "react";
-import styled from "styled-components";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import React from 'react';
+import styled from 'styled-components';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 export const GlobalPallete = {
   colors: {
-    primary: "#2E4FFF",
-    secondary: "#8A2EFF",
-    background: "#0f0a16",
-    lightGrey: "#6B6E70",
-    darkGrey: "#474B4F",
-    error: "#FF0000",
-    white: "#FFFFFF",
-    black: "#000000",
-    red: "#FF0000",
+    primary: '#2E4FFF',
+    secondary: '#8A2EFF',
+    background: '#0f0a16',
+    lightGrey: '#6B6E70',
+    darkGrey: '#474B4F',
+    error: '#FF0000',
+    white: '#FFFFFF',
+    black: '#000000',
+    red: '#FF0000',
   },
 };
 
@@ -32,7 +32,7 @@ const CSSVariables = styled.div`
 
 const MaterialUIPallet = createTheme({
   palette: {
-    mode: "dark",
+    mode: 'dark',
     primary: {
       main: GlobalPallete.colors.primary,
     },
@@ -42,12 +42,12 @@ const MaterialUIPallet = createTheme({
   },
 });
 
-const GlobalTheme = ({ children }) => {
+function GlobalTheme({ children }) {
   return (
     <CSSVariables>
       <ThemeProvider theme={MaterialUIPallet}>{children}</ThemeProvider>
     </CSSVariables>
   );
-};
+}
 
 export default GlobalTheme;

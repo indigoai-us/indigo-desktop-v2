@@ -1,4 +1,4 @@
-import create from "zustand";
+import create from 'zustand';
 
 // TODO: UPDATE FOR INDIGO DESKTOP APP
 const useGlobalState = create((set) => ({
@@ -13,7 +13,7 @@ const useGlobalState = create((set) => ({
   },
 
   // APP UI STATE
-  currentScreen: "SEARCH_SCREEN",
+  currentScreen: 'SEARCH_SCREEN',
   setCurrentScreen: (currentScreen) => {
     set(() => ({ currentScreen }));
   },

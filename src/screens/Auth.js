@@ -99,7 +99,7 @@ const StyledAuthentication = styled.div`
   }
 `;
 
-const Authentication = ({ setCurrentScreen }) => {
+function Authentication({ setCurrentScreen }) {
   const [authFormInView, setAuthFormInView] = useState('SIGN_UP');
 
   const [userEmail, setUserEmail] = useState('');
@@ -144,7 +144,7 @@ const Authentication = ({ setCurrentScreen }) => {
   const handleSignInUser = async () => {
     setGlobalLoading(true);
     try {
-      let userData = await Auth.signIn(userEmail, password);
+      const userData = await Auth.signIn(userEmail, password);
       setCurrentScreen('SEARCH_SCREEN');
       console.log('USER DATA', userData);
       setGlobalLoading(false);
@@ -336,6 +336,6 @@ const Authentication = ({ setCurrentScreen }) => {
       )}
     </StyledAuthentication>
   );
-};
+}
 
 export default Authentication;
