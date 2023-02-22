@@ -129,7 +129,7 @@ const createWindow = async () => {
 // TODO: NICK's CODE
 let tray = null;
 app.whenReady().then(() => {
-  tray = new Tray('./assets/icon_small.png');
+  tray = new Tray('./assets/icons/icon_small.png');
 
   const contextMenu = Menu.buildFromTemplate([
     {

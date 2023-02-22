@@ -173,7 +173,7 @@ function Search({ setCurrentScreen }) {
                   }}
                 >
                   <div className="body-2">{name}</div>
-                  <div>{i + 1}</div>
+                  <div className="body-2">{i + 1}</div>
                 </div>
               )
             );
