@@ -127,8 +127,12 @@ const createWindow = async () => {
 };
 
 // TODO: NICK's CODE
+app.dock.hide();
+
 let tray = null;
 app.whenReady().then(() => {
+  createWindow();
+
   tray = new Tray('./assets/icons/icon_small.png');
 
   const contextMenu = Menu.buildFromTemplate([
@@ -157,14 +161,14 @@ app.on('ready', () => {
 });
 // TODO: END NICK's CODE
 
-app
-  .whenReady()
-  .then(() => {
-    createWindow();
-    app.on('activate', () => {
-      // On macOS it's common to re-create a window in the app when the
-      // dock icon is clicked and there are no other windows open.
-      if (mainWindow === null) createWindow();
-    });
-  })
-  .catch(console.log);
+// app
+//   .whenReady()
+//   .then(() => {
+//     createWindow();
+// app.on('activate', () => {
+//   // On macOS it's common to re-create a window in the app when the
+//   // dock icon is clicked and there are no other windows open.
+//   if (mainWindow === null) createWindow();
+// });
+// })
+// .catch(console.log);
