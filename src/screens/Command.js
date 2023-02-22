@@ -46,7 +46,7 @@ const StyledCommand = styled.div`
   }
 `;
 
-const Command = ({ setCurrentScreen }) => {
+function Command({ setCurrentScreen }) {
   const [userCopyInput, setUserCopyInput] = useState('');
   const [userTypeInput, setUserTypeInput] = useState('');
 
@@ -141,6 +141,6 @@ const Command = ({ setCurrentScreen }) => {
       </div>
     </StyledCommand>
   );
-};
+}
 
 export default Command;

@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import LogoIcon from "../icons/Logo_Icon";
+import LogoIcon from '../icons/Logo_Icon';
 
 const StyledNewUser = styled.div`
   display: flex;
@@ -17,7 +17,7 @@ const StyledNewUser = styled.div`
   }
 `;
 
-const NewUser = () => {
+function NewUser() {
   return (
     <StyledNewUser>
       <div className="content">
@@ -29,6 +29,6 @@ const NewUser = () => {
       </div>
     </StyledNewUser>
   );
-};
+}
 
 export default NewUser;

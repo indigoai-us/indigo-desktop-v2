@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import styled from "styled-components";
-import MaterialUIButton from "@mui/material/Button";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import React, { useEffect } from 'react';
+import styled from 'styled-components';
+import MaterialUIButton from '@mui/material/Button';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
 const StyledClipboardCopy = styled.div`
   display: flex;
@@ -47,10 +47,10 @@ const StyledClipboardCopy = styled.div`
   }
 `;
 
-const ClipboardCopy = ({ setCurrentScreen }) => {
+function ClipboardCopy({ setCurrentScreen }) {
   useEffect(() => {
     setTimeout(() => {
-      setCurrentScreen("SEARCH_SCREEN");
+      setCurrentScreen('SEARCH_SCREEN');
     }, 5000);
   });
 
@@ -71,13 +71,13 @@ const ClipboardCopy = ({ setCurrentScreen }) => {
         variant="contained"
         color="secondary"
         onClick={() => {
-          setCurrentScreen("SEARCH_SCREEN");
+          setCurrentScreen('SEARCH_SCREEN');
         }}
       >
         Go Back To Commands
       </MaterialUIButton>
     </StyledClipboardCopy>
   );
-};
+}
 
 export default ClipboardCopy;

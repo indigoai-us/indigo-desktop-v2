@@ -85,7 +85,7 @@ const StyledSearch = styled.div`
   }
 `;
 
-const Search = ({ setCurrentScreen }) => {
+function Search({ setCurrentScreen }) {
   const [searchText, setSearchText] = useState('');
 
   const {
@@ -200,6 +200,6 @@ const Search = ({ setCurrentScreen }) => {
       </div>
     </StyledSearch>
   );
-};
+}
 
 export default Search;
