@@ -64,24 +64,24 @@ const installExtensions = async () => {
     .catch(console.log);
 };
 
+const RESOURCES_PATH = app.isPackaged
+  ? path.join(process.resourcesPath, 'assets')
+  : path.join(__dirname, '../../assets');
+
+const getAssetPath = (...paths: string[]): string => {
+  return path.join(RESOURCES_PATH, ...paths);
+};
+
 const createWindow = async () => {
   if (isDebug) {
     await installExtensions();
   }
 
-  const RESOURCES_PATH = app.isPackaged
-    ? path.join(process.resourcesPath, 'assets')
-    : path.join(__dirname, '../../assets');
-
-  const getAssetPath = (...paths: string[]): string => {
-    return path.join(RESOURCES_PATH, ...paths);
-  };
-
   mainWindow = new BrowserWindow({
     show: false,
     width: 600,
     height: 500,
-    icon: getAssetPath('./assets/icon.png'),
+    icon: getAssetPath('icon.png'),
     backgroundColor: '#282c34',
     webPreferences: {
       // TODO: UPDATE ONCE OUT OF DEVELOPMENT
@@ -133,7 +133,7 @@ let tray = null;
 app.whenReady().then(() => {
   createWindow();
 
-  tray = new Tray('./assets/icons/icon_small.png');
+  tray = new Tray(getAssetPath('/icons/icon.png'));
 
   const contextMenu = Menu.buildFromTemplate([
     {
