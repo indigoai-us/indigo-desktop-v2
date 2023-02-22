@@ -9,7 +9,15 @@
  * `./src/main.js` using webpack. This gives us some performance wins.
  */
 import path from 'path';
-import { app, BrowserWindow, shell, ipcMain, globalShortcut } from 'electron';
+import {
+  app,
+  BrowserWindow,
+  shell,
+  ipcMain,
+  globalShortcut,
+  Menu,
+  Tray,
+} from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
@@ -73,7 +81,7 @@ const createWindow = async () => {
     show: false,
     width: 600,
     height: 500,
-    icon: getAssetPath('icon.png'),
+    icon: getAssetPath('./assets/icon.png'),
     backgroundColor: '#282c34',
     webPreferences: {
       // TODO: UPDATE ONCE OUT OF DEVELOPMENT
@@ -119,6 +127,22 @@ const createWindow = async () => {
 };
 
 // TODO: NICK's CODE
+let tray = null;
+app.whenReady().then(() => {
+  tray = new Tray('./assets/icon_small.png');
+
+  const contextMenu = Menu.buildFromTemplate([
+    {
+      label: 'Open Indigo (Alt + I)',
+      type: 'normal',
+      click: () => createWindow(),
+    },
+    { label: 'Quit Indigo', type: 'normal', click: () => app.quit() },
+  ]);
+
+  tray.setContextMenu(contextMenu);
+});
+
 // do not quit when all windows are closed
 // and continue running on background to listen
 // for shortcuts
