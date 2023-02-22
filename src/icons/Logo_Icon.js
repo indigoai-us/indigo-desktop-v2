@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const StyledMembershipIcon = styled.div`
   display: flex;
@@ -9,7 +9,7 @@ const StyledMembershipIcon = styled.div`
   }
 `;
 
-const LogoIcon = ({ className }) => {
+function LogoIcon({ className }) {
   return (
     <StyledMembershipIcon className={className}>
       <svg
@@ -66,6 +66,6 @@ const LogoIcon = ({ className }) => {
       </svg>
     </StyledMembershipIcon>
   );
-};
+}
 
 export default LogoIcon;
