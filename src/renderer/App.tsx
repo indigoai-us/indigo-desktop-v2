@@ -60,9 +60,13 @@ function App() {
       }
     };
 
-    autoNavigateUserBasedOnAuth().finally(() => {
-      console.log('autoNavigateUserBasedOnAuth finished');
-    });
+    autoNavigateUserBasedOnAuth()
+      .finally(() => {
+        console.log('autoNavigateUserBasedOnAuth finished');
+      })
+      .catch((err) => {
+        console.log('autoNavigateUserBasedOnAuth error', err);
+      });
   }, []);
 
   return (
