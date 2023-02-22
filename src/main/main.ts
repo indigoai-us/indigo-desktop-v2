@@ -125,7 +125,6 @@ app.on('window-all-closed', (e) => {
 
 // open app with Alt+I
 app.on('ready', () => {
-  createWindow();
   globalShortcut.register('Alt+I', createWindow);
 });
 // TODO: END NICK's CODE

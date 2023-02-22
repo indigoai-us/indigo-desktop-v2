@@ -95,15 +95,9 @@ const Search = ({ setCurrentScreen }) => {
     selectedCommandIndex,
   } = useGlobalState();
 
-  // const searchScreenRef = useRef(null);
-
-  // useEffect(() => {
-  //   searchScreenRef.current.focus();
-  // }, []);
-
   // TODO: WORK WITH STEFAN TO USE AUTH SECURELY
   useEffect(() => {
-    async function postData() {
+    async function getCommands() {
       const apiName = 'main';
       const path = '/commands';
       const myInit = {
@@ -114,21 +108,16 @@ const Search = ({ setCurrentScreen }) => {
         },
       };
 
-      return await API.get(apiName, path, myInit).then((response) => {
-        console.log(response);
-        setAvailableCommands(response);
-      });
+      return await API.get(apiName, path, myInit)
+        .then((response) => {
+          setAvailableCommands(response);
+        })
+        .catch((error) => {
+          console.log(error.response);
+        });
     }
 
-    postData();
-
-    // API.get('main', '/commands')
-    //   .then((response) => {
-    //     setAvailableCommands(response);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error.response);
-    //   });
+    getCommands();
   }, [setAvailableCommands]);
 
   const handKeyNav = (key) => {
@@ -175,6 +164,7 @@ const Search = ({ setCurrentScreen }) => {
               (name.toUpperCase().includes(searchText.toUpperCase()) ||
                 searchText.length === 0) && (
                 <div
+                  key={name + i}
                   className={cx('command', {
                     selected: selectedCommandIndex === i,
                   })}

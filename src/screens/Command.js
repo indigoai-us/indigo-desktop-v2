@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import TextField from '@mui/material/TextField';
 import MaterialUIButton from '@mui/material/Button';
 import { API } from '@aws-amplify/api';
+import { Auth } from '@aws-amplify/auth';
 
 import useGlobalState from '../global/GlobalSate';
 
@@ -58,27 +59,42 @@ const Command = ({ setCurrentScreen }) => {
   const handleSubmitJob = () => {
     setGlobalLoading(true);
 
-    API.post('main', '/jobs', {
-      body: {
-        free: selectedCommand.free,
-        inputs: selectedCommand.inputs ? [{ specify_type: userTypeInput }] : [],
-        prompt_frame: selectedCommand.prompt_frame,
-        copied: userCopyInput,
-      },
-    })
-      .then((response) => {
-        setCurrentScreen('CLIPBOARD_COPY_SCREEN');
-        navigator.clipboard.writeText(response.result);
-        setTimeout(() => {
-          setGlobalLoading(false);
-        }, 1000);
-      })
-      .catch((error) => {
-        console.log(error);
-        setTimeout(() => {
-          setGlobalLoading(false);
-        }, 1000);
-      });
+    async function postJob() {
+      const apiName = 'main';
+      const path = '/jobs';
+      const myInit = {
+        headers: {
+          Authorization: `Bearer ${(await Auth.currentSession())
+            .getIdToken()
+            .getJwtToken()}`,
+        },
+        body: {
+          free: selectedCommand.free,
+          inputs: selectedCommand.inputs
+            ? [{ specify_type: userTypeInput }]
+            : [],
+          prompt_frame: selectedCommand.prompt_frame,
+          copied: userCopyInput,
+        },
+      };
+
+      return await API.post(apiName, path, myInit)
+        .then((response) => {
+          setCurrentScreen('CLIPBOARD_COPY_SCREEN');
+          navigator.clipboard.writeText(response.result);
+          setTimeout(() => {
+            setGlobalLoading(false);
+          }, 1000);
+        })
+        .catch((error) => {
+          console.log(error);
+          setTimeout(() => {
+            setGlobalLoading(false);
+          }, 1000);
+        });
+    }
+
+    postJob();
   };
 
   return (
