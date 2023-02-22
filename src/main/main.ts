@@ -81,7 +81,7 @@ const createWindow = async () => {
     show: false,
     width: 600,
     height: 500,
-    icon: getAssetPath('icon.png'),
+    icon: getAssetPath('icon_large.png'),
     backgroundColor: '#282c34',
     webPreferences: {
       // TODO: UPDATE ONCE OUT OF DEVELOPMENT
@@ -127,13 +127,12 @@ const createWindow = async () => {
 };
 
 // TODO: NICK's CODE
-app.dock.hide();
 
 let tray = null;
 app.whenReady().then(() => {
   createWindow();
 
-  tray = new Tray(getAssetPath('/icons/icon.png'));
+  tray = new Tray(getAssetPath('icon_small.png'));
 
   const contextMenu = Menu.buildFromTemplate([
     {

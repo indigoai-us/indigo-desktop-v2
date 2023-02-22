@@ -46,7 +46,7 @@ function App() {
         }
         setTimeout(() => {
           setGlobalLoading(false);
-        }, 1000);
+        }, 500);
       } catch (err) {
         if (
           currentScreen !== 'AUTH_SCREEN' &&
@@ -56,7 +56,7 @@ function App() {
         }
         setTimeout(() => {
           setGlobalLoading(false);
-        }, 1000);
+        }, 500);
       }
     };
 
