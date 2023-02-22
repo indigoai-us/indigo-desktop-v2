@@ -81,6 +81,11 @@ const createWindow = async () => {
     show: false,
     width: 600,
     height: 500,
+    alwaysOnTop: true,
+    darkTheme: true,
+    titleBarStyle: 'hiddenInset',
+    // can be used to hide stoplight toolbar
+    frame: true,
     icon: getAssetPath('icon_large.png'),
     backgroundColor: '#282c34',
     webPreferences: {

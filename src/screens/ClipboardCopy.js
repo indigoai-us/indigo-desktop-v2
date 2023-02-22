@@ -9,9 +9,9 @@ const StyledClipboardCopy = styled.div`
   width: -webkit-fill-available;
   flex-direction: column;
   align-items: center;
-  padding: 24px 24px 12px 24px;
+  padding: 48px 24px 12px 24px;
   // TODO: SHOULD BE DYNAMIC WITH PADDING
-  height: calc(100vh - 36px);
+  height: calc(100vh - 60px);
   position: relative;
 
   .title_text {
