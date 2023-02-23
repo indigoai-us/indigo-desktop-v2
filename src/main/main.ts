@@ -71,7 +71,6 @@ const RESOURCES_PATH = app.isPackaged
 const getAssetPath = (...paths: string[]): string => {
   return path.join(RESOURCES_PATH, ...paths);
 };
-
 const createWindow = async () => {
   if (isDebug) {
     await installExtensions();
@@ -86,7 +85,7 @@ const createWindow = async () => {
     titleBarStyle: 'hiddenInset',
     // can be used to hide stoplight toolbar
     frame: true,
-    icon: getAssetPath('icon_large.png'),
+    icon: getAssetPath('indigo.png'),
     backgroundColor: '#282c34',
     webPreferences: {
       // TODO: UPDATE ONCE OUT OF DEVELOPMENT
