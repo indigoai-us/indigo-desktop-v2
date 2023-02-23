@@ -50,7 +50,7 @@ const StyledClipboardCopy = styled.div`
 function ClipboardCopy({ setCurrentScreen }) {
   useEffect(() => {
     setTimeout(() => {
-      setCurrentScreen('SEARCH_SCREEN');
+      window.electron.ipcRenderer.sendMessage('close-window', [null]);
     }, 5000);
   });
 

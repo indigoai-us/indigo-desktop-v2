@@ -151,17 +151,21 @@ app.whenReady().then(() => {
   tray.setContextMenu(contextMenu);
 });
 
+ipcMain.on('close-window', () => {
+  mainWindow.close();
+});
+
+// open app with Alt+I
+app.on('ready', () => {
+  globalShortcut.register('Alt+I', createWindow);
+});
+
 // do not quit when all windows are closed
 // and continue running on background to listen
 // for shortcuts
 app.on('window-all-closed', (e) => {
   e.preventDefault();
   e.returnValue = false;
-});
-
-// open app with Alt+I
-app.on('ready', () => {
-  globalShortcut.register('Alt+I', createWindow);
 });
 // TODO: END NICK's CODE
 

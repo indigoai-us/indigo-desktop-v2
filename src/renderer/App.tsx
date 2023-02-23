@@ -76,7 +76,7 @@ function App() {
           className="App"
           onKeyDown={(e) => {
             if (e.key === 'Escape') {
-              // ipcRenderer.send('close-me-please');
+              window.electron.ipcRenderer.sendMessage('close-window', [null]);
             }
           }}
         >
