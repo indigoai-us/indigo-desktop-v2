@@ -164,6 +164,7 @@ function Authentication({ setCurrentScreen }) {
             className="text_field"
             variant="outlined"
             label="Email"
+            autoFocus
             value={userEmail}
             onChange={(e) => {
               setUserEmail(e.target.value);

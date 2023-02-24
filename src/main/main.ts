@@ -71,6 +71,18 @@ const RESOURCES_PATH = app.isPackaged
 const getAssetPath = (...paths: string[]): string => {
   return path.join(RESOURCES_PATH, ...paths);
 };
+
+const selectAppIcon = (): string => {
+  switch (process.platform) {
+    case 'win32':
+      return getAssetPath('indigo.ico');
+    case 'darwin':
+      return getAssetPath('indigo.icns');
+    default:
+      return getAssetPath('indigo.png');
+  }
+};
+
 const createWindow = async () => {
   if (isDebug) {
     await installExtensions();
@@ -85,7 +97,7 @@ const createWindow = async () => {
     titleBarStyle: 'hiddenInset',
     // can be used to hide stoplight toolbar
     frame: true,
-    icon: getAssetPath('indigo.png'),
+    icon: selectAppIcon(),
     backgroundColor: '#282c34',
     webPreferences: {
       // TODO: UPDATE ONCE OUT OF DEVELOPMENT
